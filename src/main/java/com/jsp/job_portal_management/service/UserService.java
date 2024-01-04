@@ -11,4 +11,11 @@ public class UserService {
 		return dao.saveUserDao(user);
 	}
 	
+	/*
+	 * login method of user ...first we have to fetch user by email then validate email and password passed by user
+	 */
+	public User loginUserByEmailPasswordService(String userEmail) {
+		return dao.getUserByEmailDao(userEmail);
+	}
+	
 }

@@ -2,6 +2,7 @@ package com.jsp.job_portal_management.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.jsp.job_portal_management.connection.UserConnection;
@@ -34,4 +35,25 @@ public class UserDao {
 		}
 		return null;
 	}
+	
+	/*
+	 * fetch user by Email Id
+	 */
+	public User  getUserByEmailDao(String userEmail) {
+		
+		String selectQuery = "SELECT * FROM user WHERE email=?";
+		
+		try {
+			PreparedStatement ps=connection.prepareStatement(selectQuery);
+			ps.setString(1, userEmail);
+			ResultSet resultSet = ps.executeQuery();
+			if(resultSet.next()) {
+				return new User(resultSet.getString("email"), resultSet.getString("password"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 }

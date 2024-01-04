@@ -14,6 +14,10 @@ public class User {
 	private InputStream cv;
 	private InputStream image;
 	
+	public User() {
+		super();
+	}
+	
 	public User(int id, String name, String email, String password, String city, String jobType, long phone,
 			InputStream cv) {
 		super();
@@ -40,13 +44,12 @@ public class User {
 		this.image = image;
 	}
 
-
-
-
-
-	public User() {
+	public User(String email, String password) {
 		super();
+		this.email = email;
+		this.password = password;
 	}
+
 	public int getId() {
 		return id;
 	}
