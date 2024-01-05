@@ -1,9 +1,16 @@
 package com.jsp.job_portal_management.dto;
 
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.Blob;
 
+/**
+ * 
+ * @author Mo Masood Ansari bsxjzhvcsdnklmlbfmb nnb mbm nb n
+ *
+ */
 public class User {
-	
+
 	private int id;
 	private String name;
 	private String email;
@@ -13,11 +20,13 @@ public class User {
 	private long phone;
 	private InputStream cv;
 	private InputStream image;
-	
+	private Blob fetchImage;
+	private Blob fetchCv;
+
 	public User() {
 		super();
 	}
-	
+
 	public User(int id, String name, String email, String password, String city, String jobType, long phone,
 			InputStream cv) {
 		super();
@@ -44,6 +53,25 @@ public class User {
 		this.image = image;
 	}
 
+	/*
+	 * fetch image wala constructor
+	 */
+
+	public User(String name, String email, String city, String jobType, long phone, Blob fetchImage,
+			Blob fetchCv) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.city = city;
+		this.jobType = jobType;
+		this.phone = phone;
+		this.fetchImage = fetchImage;
+		this.fetchCv = fetchCv;
+	}
+
+	/*
+	 * login wala constructor
+	 */
 	public User(String email, String password) {
 		super();
 		this.email = email;
@@ -53,48 +81,63 @@ public class User {
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public String getCity() {
 		return city;
 	}
+
 	public void setCity(String city) {
 		this.city = city;
 	}
+
 	public String getJobType() {
 		return jobType;
 	}
+
 	public void setJobType(String jobType) {
 		this.jobType = jobType;
 	}
+
 	public long getPhone() {
 		return phone;
 	}
+
 	public void setPhone(long phone) {
 		this.phone = phone;
 	}
+
 	public InputStream getCv() {
 		return cv;
 	}
+
 	public void setCv(InputStream cv) {
 		this.cv = cv;
 	}
@@ -107,4 +150,19 @@ public class User {
 		this.image = image;
 	}
 
+	public Blob getFetchImage() {
+		return fetchImage;
+	}
+
+	public void setFetchImage(Blob fetchImage) {
+		this.fetchImage = fetchImage;
+	}
+
+	public Blob getFetchCv() {
+		return fetchCv;
+	}
+
+	public void setFetchCv(Blob fetchCv) {
+		this.fetchCv = fetchCv;
+	}
 }

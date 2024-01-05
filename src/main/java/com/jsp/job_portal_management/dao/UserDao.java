@@ -1,5 +1,6 @@
 package com.jsp.job_portal_management.dao;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -49,6 +50,41 @@ public class UserDao {
 			ResultSet resultSet = ps.executeQuery();
 			if(resultSet.next()) {
 				return new User(resultSet.getString("email"), resultSet.getString("password"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/*
+	 * fetch user by Email Id
+	 */
+	public User  getAllUserDetailsByEmailDao(String userEmail) {
+		
+		String selectQuery = "SELECT * FROM user WHERE email=?";
+		
+		try {
+			PreparedStatement ps=connection.prepareStatement(selectQuery);
+			ps.setString(1, userEmail);
+			ResultSet resultSet = ps.executeQuery();
+			if(resultSet.next()) {
+				
+				Blob userImage = resultSet.getBlob("image");
+				Blob userCv = resultSet.getBlob("cv");
+				String name = resultSet.getString("name");
+				String email = resultSet.getString("email");
+				String city = resultSet.getString("city");
+				String jobType = resultSet.getString("jobtype");
+				long phone = resultSet.getLong("phone");
+				
+				/*
+				 * byte[] userimage = userImage.getBytes(1,(int) userImage.length()); byte[]
+				 * usercv = userCv.getBytes(2, (int)userCv.length());
+				 */
+				
+				return new User(name, email, city, jobType, phone, userImage, userCv);
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

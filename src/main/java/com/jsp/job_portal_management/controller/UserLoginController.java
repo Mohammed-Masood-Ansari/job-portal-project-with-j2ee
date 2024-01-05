@@ -37,7 +37,7 @@ public class UserLoginController extends HttpServlet{
 				
 				if(user.getPassword().equals(password)) {
 					httpSession.setAttribute("userSession", username);
-					req.getRequestDispatcher("home.jsp").forward(req, resp);
+					req.getRequestDispatcher("user-home.jsp").forward(req, resp);
 				}else {
 					req.setAttribute("passwordWrong", "user password is incorrect");
 					req.getRequestDispatcher("user-login.jsp").forward(req, resp);
