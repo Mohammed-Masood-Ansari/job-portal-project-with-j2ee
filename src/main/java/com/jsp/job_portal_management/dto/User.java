@@ -20,8 +20,6 @@ public class User {
 	private long phone;
 	private InputStream cv;
 	private InputStream image;
-	private Blob fetchImage;
-	private Blob fetchCv;
 
 	public User() {
 		super();
@@ -57,16 +55,15 @@ public class User {
 	 * fetch image wala constructor
 	 */
 
-	public User(String name, String email, String city, String jobType, long phone, Blob fetchImage,
-			Blob fetchCv) {
+	public User(String name, String email, String city, String jobType, long phone,
+			InputStream image) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.city = city;
 		this.jobType = jobType;
 		this.phone = phone;
-		this.fetchImage = fetchImage;
-		this.fetchCv = fetchCv;
+		this.image = image;
 	}
 
 	/*
@@ -77,6 +74,8 @@ public class User {
 		this.email = email;
 		this.password = password;
 	}
+
+	
 
 	public int getId() {
 		return id;
@@ -148,21 +147,6 @@ public class User {
 
 	public void setImage(InputStream image) {
 		this.image = image;
-	}
-
-	public Blob getFetchImage() {
-		return fetchImage;
-	}
-
-	public void setFetchImage(Blob fetchImage) {
-		this.fetchImage = fetchImage;
-	}
-
-	public Blob getFetchCv() {
-		return fetchCv;
-	}
-
-	public void setFetchCv(Blob fetchCv) {
-		this.fetchCv = fetchCv;
-	}
+	}	
+	
 }

@@ -25,7 +25,7 @@
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-				<li class="nav-item"><a class="nav-link" href="user-profile.jsp"
+				<li class="nav-item"><a class="nav-link" href="getUserDetails"
 					tabindex="-1" >MyProfile</a></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0"  style="margin-right: 700px;" action="" method="get">

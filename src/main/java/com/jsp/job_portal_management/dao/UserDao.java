@@ -1,5 +1,6 @@
 package com.jsp.job_portal_management.dao;
 
+import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -70,8 +71,7 @@ public class UserDao {
 			ResultSet resultSet = ps.executeQuery();
 			if(resultSet.next()) {
 				
-				Blob userImage = resultSet.getBlob("image");
-				Blob userCv = resultSet.getBlob("cv");
+				InputStream userImage = resultSet.getBinaryStream("image");
 				String name = resultSet.getString("name");
 				String email = resultSet.getString("email");
 				String city = resultSet.getString("city");
@@ -83,7 +83,7 @@ public class UserDao {
 				 * usercv = userCv.getBytes(2, (int)userCv.length());
 				 */
 				
-				return new User(name, email, city, jobType, phone, userImage, userCv);
+				return new User(name, email, city, jobType, phone, userImage);
 				
 			}
 		} catch (SQLException e) {

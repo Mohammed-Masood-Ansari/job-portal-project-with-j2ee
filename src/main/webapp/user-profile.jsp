@@ -1,12 +1,19 @@
+<%@page import="java.io.IOException"%>
+<%@page import="java.io.InputStream"%>
+<%@page import="java.io.OutputStream"%>
+<%@page import="java.sql.Blob"%>
 <%@page import="com.jsp.job_portal_management.dto.User"%>
 <%@page import="com.jsp.job_portal_management.dao.UserDao"%>
+<%@ page import="org.apache.commons.io.IOUtils" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Details</title>
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
 	rel="stylesheet" />
@@ -22,27 +29,34 @@
 <link rel="stylesheet" src="user-profile.css" />
 </head>
 <body>
-	
+
 	<jsp:include page="user-navbar.jsp"></jsp:include>
-	
+
 	<%
-			HttpSession httpSession = request.getSession();
-			
-			String userEmail =(String) httpSession.getAttribute("userSession");
-	
-			UserDao dao = new UserDao();
-	
-			User user=dao.getAllUserDetailsByEmailDao(userEmail);
+	/* ServletOutputStream outputStream = response.getOutputStream();*/
+	User user = (User) request.getAttribute("userDetails");
 	%>
 
-	
+	<%!
+	// Function to convert InputStream to Base64 String
+	private String getBase64Image(InputStream imageStream) {
+	    try {
+	        byte[] bytes = IOUtils.toByteArray(imageStream);
+	        return java.util.Base64.getEncoder().encodeToString(bytes);
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        return "";
+	    }
+}
+%>
+
 	<div class="container rounded bg-white mt-5 mb-5">
 		<div class="row">
 			<div class="col-md-3 border-right">
 				<div
 					class="d-flex flex-column align-items-center text-center p-3 py-5">
 					<img class="rounded-circle mt-5" width="150px"
-						src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+						src="data:image/jpeg;base64,<%= getBase64Image(user.getImage()) %>"><span
 						class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span>
 					</span>
 				</div>
@@ -55,7 +69,8 @@
 					<div class="row mt-2">
 						<div class="col-md-6">
 							<label class="labels">Name</label><input type="text"
-								class="form-control" placeholder="first name" value="<%=user.getName()%>" >
+								class="form-control" placeholder="first name"
+								value="<%=user.getName()%>">
 						</div>
 						<div class="col-md-6">
 							<label class="labels">Surname</label><input type="text"
