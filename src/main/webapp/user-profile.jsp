@@ -57,7 +57,7 @@
 					class="d-flex flex-column align-items-center text-center p-3 py-5">
 					<img class="rounded-circle mt-5" width="150px"
 						src="data:image/jpeg;base64,<%= getBase64Image(user.getImage()) %>"><span
-						class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span>
+						class="font-weight-bold"><%=user.getName()%></span><span class="text-black-50"><%=user.getEmail()%></span><span>
 					</span>
 				</div>
 			</div>
@@ -69,56 +69,52 @@
 					<div class="row mt-2">
 						<div class="col-md-6">
 							<label class="labels">Name</label><input type="text"
-								class="form-control" placeholder="first name"
+								class="form-control" placeholder="first name" name="name"
 								value="<%=user.getName()%>">
-						</div>
-						<div class="col-md-6">
-							<label class="labels">Surname</label><input type="text"
-								class="form-control" value="" placeholder="surname">
 						</div>
 					</div>
 					<div class="row mt-3">
 						<div class="col-md-12">
 							<label class="labels">Mobile Number</label><input type="text"
-								class="form-control" placeholder="enter phone number" value="">
+								class="form-control" placeholder="enter phone number" name="phone" value="<%=user.getPhone()%>">
 						</div>
 						<div class="col-md-12">
 							<label class="labels">Address Line 1</label><input type="text"
-								class="form-control" placeholder="enter address line 1" value="">
+								class="form-control" placeholder="enter address line 1" value="" name="address1">
 						</div>
 						<div class="col-md-12">
 							<label class="labels">Address Line 2</label><input type="text"
-								class="form-control" placeholder="enter address line 2" value="">
+								class="form-control" placeholder="enter address line 2" value="" name="address2">
 						</div>
 						<div class="col-md-12">
 							<label class="labels">Postcode</label><input type="text"
-								class="form-control" placeholder="enter address line 2" value="">
+								class="form-control" placeholder="enter address line 2" value="" name="pincode">
 						</div>
 						<div class="col-md-12">
 							<label class="labels">State</label><input type="text"
-								class="form-control" placeholder="enter address line 2" value="">
+								class="form-control" placeholder="enter address line 2" value="" name="state">
 						</div>
 						<div class="col-md-12">
 							<label class="labels">Area</label><input type="text"
-								class="form-control" placeholder="enter address line 2" value="">
+								class="form-control" placeholder="enter address line 2" value="" name="area">
 						</div>
 						<div class="col-md-12">
-							<label class="labels">Email ID</label><input type="text"
-								class="form-control" placeholder="enter email id" value="">
+							<label class="labels">Email ID</label><input type="email"
+								class="form-control" placeholder="enter email id" value="<%=user.getEmail()%>" name="email">
 						</div>
 						<div class="col-md-12">
 							<label class="labels">Education</label><input type="text"
-								class="form-control" placeholder="education" value="">
+								class="form-control" placeholder="highest-Qualification-Branch" value="" name="education">
 						</div>
 					</div>
 					<div class="row mt-3">
 						<div class="col-md-6">
 							<label class="labels">Country</label><input type="text"
-								class="form-control" placeholder="country" value="">
+								class="form-control" placeholder="country" value="" name="country">
 						</div>
 						<div class="col-md-6">
 							<label class="labels">State/Region</label><input type="text"
-								class="form-control" value="" placeholder="state">
+								class="form-control" value="" placeholder="state" name="state">
 						</div>
 					</div>
 					<div class="mt-5 text-center">

@@ -22,6 +22,15 @@
 </head>
 </head>
 <body>
+
+	<%
+	String emailIncorercct = (String) request.getAttribute("emailWrong");
+	String passwordIncorrect = (String) request.getAttribute("passwordWrong");
+	String logoutMessage = (String) request.getAttribute("logoutMsg");
+	%>
+
+
+
 	<!-- user login page -->
 	<!-- sjdgukdsbnljv -->
 	<section class="h-100 gradient-form" style="background-color: #eee;">
@@ -33,12 +42,9 @@
 						<div class="row g-0">
 							<div class="col-lg-6 d-flex align-items-center gradient-custom-2">
 								<div class="text-white px-3 py-4 p-md-5 mx-md-4">
-									<h4 class="mb-4">We are more than just a company</h4>
-									<p class="small mb-0">Lorem ipsum dolor sit amet,
-										consectetur adipisicing elit, sed do eiusmod tempor incididunt
-										ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-										quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-										ea commodo consequat.</p>
+									<h4 class="mb-4">We Provide Excellent Training</h4>
+									<p class="small mb-0">We make your future brighter after
+										completion of full stack java course</p>
 								</div>
 							</div>
 
@@ -48,22 +54,40 @@
 
 									<div class="text-center">
 										<img
-											src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+											src="https://media.licdn.com/dms/image/C560BAQEVqtIX4bs1RA/company-logo_200_200/0/1672744977770/jspiders___training__development_center_logo?e=2147483647&v=beta&t=Eax0yj68G4iXikx6uDcYUPguesxVU9ZpPV8eZOJvI7w"
 											style="width: 185px;" alt="logo">
 										<h4 class="mt-1 mb-5 pb-1">We are Developer From JSpider</h4>
 									</div>
 
-
+									<%
+									if (logoutMessage != null) {
+									%>
+									<p style="color: green;"><%=logoutMessage%></p>
+									<%
+									}
+									%>
 
 									<form action="userlogin" method="post">
 										<p>Please login to your account</p>
-
+										<%
+										if (emailIncorercct != null) {
+										%>
+										<p style="color: red"><%=emailIncorercct%></p>
+										<%
+										}
+										%>
 										<div class="form-outline mb-4">
 											<input type="email" id="form2Example11" class="form-control"
 												placeholder="Phone number or email address" name="username" />
 											<label class="form-label" for="form2Example11">Username</label>
 										</div>
-
+										<%
+										if (passwordIncorrect != null) {
+										%>
+										<p style="color: red"><%=passwordIncorrect%></p>
+										<%
+										}
+										%>
 										<div class="form-outline mb-4">
 											<input type="password" id="form2Example22"
 												class="form-control" name="password" /> <label
@@ -73,15 +97,15 @@
 										<!-- radio button -->
 
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio"
-												name="login" id="inlineRadio1" value="user" />
-											<label class="form-check-label" for="inlineRadio1">user</label>
+											<input class="form-check-input" type="radio" name="login"
+												id="inlineRadio1" value="user" /> <label
+												class="form-check-label" for="inlineRadio1">user</label>
 										</div>
 
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio"
-												name="login" id="inlineRadio2" value="recruiter" />
-											<label class="form-check-label" for="inlineRadio2">recruiter</label>
+											<input class="form-check-input" type="radio" name="login"
+												id="inlineRadio2" value="recruiter" /> <label
+												class="form-check-label" for="inlineRadio2">recruiter</label>
 										</div>
 
 										<div class="form-check form-check-inline">

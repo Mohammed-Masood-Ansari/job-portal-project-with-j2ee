@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.jsp.job_portal_management.dao.AdminDao;
+import com.jsp.job_portal_management.dto.Admin;
 import com.jsp.job_portal_management.dto.User;
 import com.jsp.job_portal_management.service.UserService;
 
@@ -25,6 +27,8 @@ public class UserLoginController extends HttpServlet{
 		
 		UserService service = new UserService();
 		
+		AdminDao adminDao = new AdminDao();
+		
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		String loginType = req.getParameter("login");
@@ -39,17 +43,30 @@ public class UserLoginController extends HttpServlet{
 					httpSession.setAttribute("userSession", username);
 					req.getRequestDispatcher("user-home.jsp").forward(req, resp);
 				}else {
-					req.setAttribute("passwordWrong", "user password is incorrect");
+					req.setAttribute("passwordWrong", "password is incorrect");
 					req.getRequestDispatcher("user-login.jsp").forward(req, resp);
 				}
 				
 			}else {
-				req.setAttribute("emailWrong", "user email is incorrect");
+				req.setAttribute("emailWrong", "email is incorrect");
 				req.getRequestDispatcher("user-login.jsp").forward(req, resp);
 			}
 			
-		}else if(true) {
+		}else if(loginType.equals("admin")) {
+			Admin admin = adminDao.loginAdminDao(username);
 			
+			if(admin!=null) {
+				if(admin.getPassword().equals(password)) {
+					httpSession.setAttribute("adminSession", username);
+					req.getRequestDispatcher("admin-home.jsp").forward(req, resp);
+				}else {
+					req.setAttribute("passwordWrong", "password is incorrect");
+					req.getRequestDispatcher("user-login.jsp").forward(req, resp);
+				}
+			}else {
+				req.setAttribute("emailWrong", "email is incorrect");
+				req.getRequestDispatcher("user-login.jsp").forward(req, resp);
+			}
 		}else {
 			
 		}
