@@ -25,9 +25,9 @@
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">AppliedJob</a></li>
-				<li class="nav-item"><a class="nav-link" href="getUserDetails"
+				<li class="nav-item"><a class="nav-link" href="post-job.jsp"
 					tabindex="-1">PostJob</a></li>
-				<li class="nav-item"><a class="nav-link" href="getUserDetails"
+				<li class="nav-item"><a class="nav-link" href="posted-job.jsp"
 					tabindex="-1">PostedJob</a></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0" style="margin-right: 700px;"

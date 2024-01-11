@@ -22,6 +22,25 @@ public class Recruiter {
 		this.company = company;
 		this.phone = phone;
 	}
+	
+	
+
+	public Recruiter(String name, String email, String password, String company, long phone) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.company = company;
+		this.phone = phone;
+	}
+	
+	
+
+	public Recruiter(String email, String password) {
+		super();
+		this.email = email;
+		this.password = password;
+	}
 
 	public int getId() {
 		return id;

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>recruiter-register</title>
+<title>post-job</title>
 <!-- Font Awesome -->
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -50,6 +50,7 @@
 </style>
 </head>
 <body>
+	<jsp:include page="recruiter-navbar.jsp"></jsp:include>
 	<section class="vh-100 bg-image"
 		style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
 		<div class="mask d-flex align-items-center h-100 gradient-custom-3">
@@ -59,20 +60,19 @@
 					<div class="col-12 col-md-9 col-lg-7 col-xl-6">
 						<div class="card" style="border-radius: 15px;">
 							<div class="card-body p-5">
-								<h2 class="text-uppercase text-center mb-5">Create an
-									account</h2>
+								<h2 class="text-uppercase text-center mb-5">Create-New-Job</h2>
 
 								<form action="recruiterRegister" method="post">
 
 									<div class="form-outline mb-4">
-										<label class="form-label" for="form3Example1cg">Your
+										<label class="form-label" for="form3Example1cg">Company
 											Name:</label> <input type="text" id="form3Example1cg"
-											class="form-control form-control-lg border" name="name"/>
+											class="form-control form-control-lg border" name="name" />
 									</div>
 
 									<div class="form-outline mb-4">
-										<label class="form-label" for="form3Example3cg">Your
-											Email:</label> <input type="email" id="form3Example3cg"
+										<label class="form-label" for="form3Example3cg">Skills:</label>
+										<input type="email" id="form3Example3cg"
 											class="form-control form-control-lg border" name="email" />
 									</div>
 
@@ -83,34 +83,52 @@
 									</div>
 
 									<div class="form-outline mb-4">
-										<label class="form-label" for="form3Example4cg">Password:</label>
-										<input type="password" id="form3Example4cg"
-											class="form-control form-control-lg border" name="password" />
+										<label class="form-label" for="form3Example4cg">email:</label>
+										<input type="email" id="form3Example4cg"
+											class="form-control form-control-lg border" name="email" />
 									</div>
 
 									<div class="form-outline mb-4">
-										<label class="form-label" for="form3Example4cdg">Company
-											Name:</label> <input type="text" id="form3Example4cdg"
-											class="form-control form-control-lg border" name="company" />
+										<label class="form-label" for="form3Example4cdg">job
+											title:</label> <input type="text" id="form3Example4cdg"
+											class="form-control form-control-lg border" name="job" />
 									</div>
 
-									<div class="form-check d-flex justify-content-center mb-5">
-										<input class="form-check-input me-2" type="checkbox" value=""
-											id="form2Example3cg" /> <label class="form-check-label"
-											for="form2Example3g"> I agree all statements in <a
-											href="#!" class="text-body"><u>Terms of service</u></a>
-										</label>
+									<div class="form-outline mb-4">
+										<label class="form-label" for="form3Example4cdg">job
+											location:</label> <input type="text" id="form3Example4cdg"
+											class="form-control form-control-lg border" name="location" />
 									</div>
+
+									<div class="form-outline mb-4">
+										<label class="form-label" for="form3Example4cdg">experience:
+										</label> <input type="text" id="form3Example4cdg"
+											class="form-control form-control-lg border" name="location" />
+									</div>
+									
+									<div class="form-outline mb-4">
+										<label class="form-label" for="form3Example4cdg">job-role:
+										</label> <input type="text" id="form3Example4cdg"
+											class="form-control form-control-lg border" name="role" />
+									</div>
+									
+									<div class="form-outline mb-4">
+										<label class="form-label" for="form3Example4cdg">salary:
+										</label> <input type="text" id="form3Example4cdg"
+											class="form-control form-control-lg border" name="salary" />
+									</div>
+
+									<div class="form-outline mb-4">
+										<label class="form-label" for="form3Example4cdg">Job-Description</label>
+										<textarea type="text" id="form3Example4cdg"
+											class="form-control form-control-lg border" name="job"></textarea>
+									</div>
+									<br>
 
 									<div class="d-flex justify-content-center">
 										<button type="submit"
-											class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Signup</button>
+											class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Post</button>
 									</div>
-
-									<p class="text-center text-muted mt-5 mb-0">
-										Have already an account? <a href="user-login.jsp"
-											class="fw-bold text-body"><u>Login here</u></a>
-									</p>
 
 								</form>
 

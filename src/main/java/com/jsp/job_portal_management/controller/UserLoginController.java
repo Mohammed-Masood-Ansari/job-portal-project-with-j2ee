@@ -1,6 +1,7 @@
 package com.jsp.job_portal_management.controller;
 
 import java.io.IOException;
+import java.lang.module.ModuleDescriptor.Requires;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpSession;
 
 import com.jsp.job_portal_management.dao.AdminDao;
 import com.jsp.job_portal_management.dto.Admin;
+import com.jsp.job_portal_management.dto.Recruiter;
 import com.jsp.job_portal_management.dto.User;
+import com.jsp.job_portal_management.service.RecruiterService;
 import com.jsp.job_portal_management.service.UserService;
 
 
@@ -26,6 +29,7 @@ public class UserLoginController extends HttpServlet{
 		HttpSession httpSession = req.getSession();
 		
 		UserService service = new UserService();
+		RecruiterService recruiterService = new RecruiterService();
 		
 		AdminDao adminDao = new AdminDao();
 		
@@ -67,7 +71,24 @@ public class UserLoginController extends HttpServlet{
 				req.setAttribute("emailWrong", "email is incorrect");
 				req.getRequestDispatcher("user-login.jsp").forward(req, resp);
 			}
-		}else {
+		}
+		
+		else {
+			Recruiter recruiter = recruiterService.getRecruiterByEmailService(username);
+			
+			if(recruiter!=null) {
+				if(recruiter.getPassword().equals(password)) {
+					httpSession.setAttribute("recruiterSession", username);
+					req.getRequestDispatcher("recruiter-home.jsp").forward(req, resp);
+				}else {
+					req.setAttribute("passwordWrong", "password is incorrect");
+					req.getRequestDispatcher("user-login.jsp").forward(req, resp);
+				}
+			}else {
+				req.setAttribute("emailWrong", "email is incorrect");
+				req.getRequestDispatcher("user-login.jsp").forward(req, resp);
+			}
+			
 			
 		}
 	}
