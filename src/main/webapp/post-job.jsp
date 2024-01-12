@@ -62,7 +62,7 @@
 							<div class="card-body p-5">
 								<h2 class="text-uppercase text-center mb-5">Create-New-Job</h2>
 
-								<form action="recruiterRegister" method="post">
+								<form action="postJob" method="post">
 
 									<div class="form-outline mb-4">
 										<label class="form-label" for="form3Example1cg">Company
@@ -72,8 +72,8 @@
 
 									<div class="form-outline mb-4">
 										<label class="form-label" for="form3Example3cg">Skills:</label>
-										<input type="email" id="form3Example3cg"
-											class="form-control form-control-lg border" name="email" />
+										<input type="text" id="form3Example3cg"
+											class="form-control form-control-lg border" name="skill" />
 									</div>
 
 									<div class="form-outline mb-4">
@@ -91,7 +91,7 @@
 									<div class="form-outline mb-4">
 										<label class="form-label" for="form3Example4cdg">job
 											title:</label> <input type="text" id="form3Example4cdg"
-											class="form-control form-control-lg border" name="job" />
+											class="form-control form-control-lg border" name="title" />
 									</div>
 
 									<div class="form-outline mb-4">
@@ -103,7 +103,7 @@
 									<div class="form-outline mb-4">
 										<label class="form-label" for="form3Example4cdg">experience:
 										</label> <input type="text" id="form3Example4cdg"
-											class="form-control form-control-lg border" name="location" />
+											class="form-control form-control-lg border" name="experience" />
 									</div>
 									
 									<div class="form-outline mb-4">
@@ -121,7 +121,7 @@
 									<div class="form-outline mb-4">
 										<label class="form-label" for="form3Example4cdg">Job-Description</label>
 										<textarea type="text" id="form3Example4cdg"
-											class="form-control form-control-lg border" name="job"></textarea>
+											class="form-control form-control-lg border" name="description"></textarea>
 									</div>
 									<br>
 

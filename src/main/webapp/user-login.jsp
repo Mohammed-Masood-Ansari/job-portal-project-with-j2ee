@@ -27,6 +27,7 @@
 	String emailIncorercct = (String) request.getAttribute("emailWrong");
 	String passwordIncorrect = (String) request.getAttribute("passwordWrong");
 	String logoutMessage = (String) request.getAttribute("logoutMsg");
+	String sessionLogout = (String) request.getAttribute("sessionLogout");
 	%>
 
 
@@ -63,6 +64,14 @@
 									if (logoutMessage != null) {
 									%>
 									<p style="color: green;"><%=logoutMessage%></p>
+									<%
+									}
+									%>
+									
+									<%
+									if (sessionLogout != null) {
+									%>
+									<p style="color: green;"><%=sessionLogout%></p>
 									<%
 									}
 									%>
