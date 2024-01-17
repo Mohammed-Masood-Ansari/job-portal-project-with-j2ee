@@ -10,4 +10,8 @@ public class PostJobService {
 	public PostJob savePostJobService(PostJob job) {
 		return dao.savePostJobDao(job);
 	}
+	
+	public int verifyPostJobService(int id) {
+		return dao.verifyPostJobDao(id);
+	}
 }

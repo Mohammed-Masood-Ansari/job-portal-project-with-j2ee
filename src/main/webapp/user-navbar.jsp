@@ -28,11 +28,14 @@
 				<li class="nav-item"><a class="nav-link" href="getUserDetails"
 					tabindex="-1" >MyProfile</a></li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0"  style="margin-right: 700px;" action="" method="get">
+			<div class="container d-flex justify-content-center">
+			<form class="form-inline my-2 my-lg-0" action="" method="get">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="search your job here" aria-label="Search" name="search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
+			</div>
+			
 			 <a href="userLogout"><button class="border-0">logout</button></a>
 		</div>
 	</nav>

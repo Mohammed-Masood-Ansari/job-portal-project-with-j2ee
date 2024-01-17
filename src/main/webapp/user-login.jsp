@@ -53,10 +53,10 @@
 							<div class="col-lg-6">
 								<div class="card-body p-md-5 mx-md-4">
 
-									<div class="text-center">
-										<img
+									<div class="text-center" >
+										<img style="border-radius: 50%; background-color: red"
 											src="https://media.licdn.com/dms/image/C560BAQEVqtIX4bs1RA/company-logo_200_200/0/1672744977770/jspiders___training__development_center_logo?e=2147483647&v=beta&t=Eax0yj68G4iXikx6uDcYUPguesxVU9ZpPV8eZOJvI7w"
-											style="width: 185px;" alt="logo">
+											 alt="logo">
 										<h4 class="mt-1 mb-5 pb-1">We are Developer From JSpider</h4>
 									</div>
 
@@ -86,9 +86,10 @@
 										}
 										%>
 										<div class="form-outline mb-4">
-											<input type="email" id="form2Example11" class="form-control"
-												placeholder="Phone number or email address" name="username" />
 											<label class="form-label" for="form2Example11">Username</label>
+											<input type="email" id="form2Example11" class="form-control border"
+												placeholder="Phone number or email address" name="username" />
+											
 										</div>
 										<%
 										if (passwordIncorrect != null) {
@@ -98,9 +99,10 @@
 										}
 										%>
 										<div class="form-outline mb-4">
+											<label
+												class="form-label " for="form2Example22">Password</label>
 											<input type="password" id="form2Example22"
-												class="form-control" name="password" /> <label
-												class="form-label" for="form2Example22">Password</label>
+												class="form-control border" name="password" /> 
 										</div>
 
 										<!-- radio button -->
@@ -122,6 +124,7 @@
 												id="inlineRadio3" value="admin" /> <label
 												class="form-check-label" for="inlineRadio3">admin </label>
 										</div>
+										
 
 										<!-- radio button end -->
 

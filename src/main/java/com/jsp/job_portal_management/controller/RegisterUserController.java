@@ -38,6 +38,7 @@ public class RegisterUserController extends HttpServlet {
 		UserService service = new UserService();
 
 		service.saveUserService(user);
+		req.getRequestDispatcher("user-login.jsp").forward(req, resp);
 
 	}
 }

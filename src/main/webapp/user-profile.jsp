@@ -64,56 +64,52 @@
 			<div class="col-md-5 border-right">
 				<div class="p-3 py-5">
 					<div class="d-flex justify-content-between align-items-center mb-3">
-						<h4 class="text-right">Profile Settings</h4>
+						<h4 class="text-right">Profile-Settings:</h4>
 					</div>
 					<div class="row mt-2">
 						<div class="col-md-6">
-							<label class="labels">Name</label><input type="text"
+							<label class="labels">Full-Name:</label><input type="text"
 								class="form-control" placeholder="first name" name="name"
 								value="<%=user.getName()%>">
 						</div>
 					</div>
 					<div class="row mt-3">
 						<div class="col-md-12">
-							<label class="labels">Mobile Number</label><input type="text"
+							<label class="labels">Mobile-Number:</label><input type="text"
 								class="form-control" placeholder="enter phone number" name="phone" value="<%=user.getPhone()%>">
 						</div>
 						<div class="col-md-12">
-							<label class="labels">Address Line 1</label><input type="text"
-								class="form-control" placeholder="enter address line 1" value="" name="address1">
+							<label class="labels">Current-Address:</label><input type="text"
+								class="form-control" placeholder="enter current address" value="" name="current">
 						</div>
 						<div class="col-md-12">
-							<label class="labels">Address Line 2</label><input type="text"
-								class="form-control" placeholder="enter address line 2" value="" name="address2">
+							<label class="labels">Permanent-Address:</label><input type="text"
+								class="form-control" placeholder="enter permanent address" value="" name="permanent">
 						</div>
 						<div class="col-md-12">
-							<label class="labels">Postcode</label><input type="text"
-								class="form-control" placeholder="enter address line 2" value="" name="pincode">
+							<label class="labels">Pincode:</label><input type="text"
+								class="form-control" placeholder="enter pin-code" value="" name="pincode">
 						</div>
 						<div class="col-md-12">
-							<label class="labels">State</label><input type="text"
-								class="form-control" placeholder="enter address line 2" value="" name="state">
+							<label class="labels">City:</label><input type="text"
+								class="form-control" placeholder="enter your city" value="" name="city">
 						</div>
 						<div class="col-md-12">
-							<label class="labels">Area</label><input type="text"
-								class="form-control" placeholder="enter address line 2" value="" name="area">
-						</div>
-						<div class="col-md-12">
-							<label class="labels">Email ID</label><input type="email"
+							<label class="labels">Email-ID:</label><input type="email"
 								class="form-control" placeholder="enter email id" value="<%=user.getEmail()%>" name="email">
 						</div>
 						<div class="col-md-12">
-							<label class="labels">Education</label><input type="text"
+							<label class="labels">Education:</label><input type="text"
 								class="form-control" placeholder="highest-Qualification-Branch" value="" name="education">
 						</div>
 					</div>
 					<div class="row mt-3">
 						<div class="col-md-6">
-							<label class="labels">Country</label><input type="text"
+							<label class="labels">Country:</label><input type="text"
 								class="form-control" placeholder="country" value="" name="country">
 						</div>
 						<div class="col-md-6">
-							<label class="labels">State/Region</label><input type="text"
+							<label class="labels">State/Region:</label><input type="text"
 								class="form-control" value="" placeholder="state" name="state">
 						</div>
 					</div>
@@ -123,26 +119,6 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4">
-				<div class="p-3 py-5">
-					<div
-						class="d-flex justify-content-between align-items-center experience">
-						<span>Edit Experience</span><span
-							class="border px-3 p-1 add-experience"><i
-							class="fa fa-plus"></i>&nbsp;Experience</span>
-					</div>
-					<br>
-					<div class="col-md-12">
-						<label class="labels">Experience in Designing</label><input
-							type="text" class="form-control" placeholder="experience"
-							value="">
-					</div>
-					<br>
-					<div class="col-md-12">
-						<label class="labels">Additional Details</label><input type="text"
-							class="form-control" placeholder="additional details" value="">
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
