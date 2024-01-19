@@ -50,7 +50,7 @@ public class UserDao {
 			ps.setString(1, userEmail);
 			ResultSet resultSet = ps.executeQuery();
 			if(resultSet.next()) {
-				return new User(resultSet.getString("email"), resultSet.getString("password"));
+				return new User(resultSet.getInt("id"),resultSet.getString("email"), resultSet.getString("password"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

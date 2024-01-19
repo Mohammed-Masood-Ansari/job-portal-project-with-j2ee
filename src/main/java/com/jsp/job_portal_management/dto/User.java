@@ -77,6 +77,13 @@ public class User {
 
 	
 
+	public User(int id, String email, String password) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.password = password;
+	}
+
 	public int getId() {
 		return id;
 	}

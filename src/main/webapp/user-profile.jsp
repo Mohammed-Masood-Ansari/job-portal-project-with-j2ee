@@ -66,6 +66,7 @@
 					<div class="d-flex justify-content-between align-items-center mb-3">
 						<h4 class="text-right">Profile-Settings:</h4>
 					</div>
+					<form action="updateUserProfile" method="post">
 					<div class="row mt-2">
 						<div class="col-md-6">
 							<label class="labels">Full-Name:</label><input type="text"
@@ -114,9 +115,10 @@
 						</div>
 					</div>
 					<div class="mt-5 text-center">
-						<button class="btn btn-primary profile-button" type="button">Save
+						<button class="btn btn-primary profile-button" type="submit">Save
 							Profile</button>
 					</div>
+				</form>
 				</div>
 			</div>
 			</div>
