@@ -21,8 +21,15 @@ public class User {
 	private InputStream cv;
 	private InputStream image;
 
-	public User() {
+	public User(int id, String name, String email, String city, String jobType, long phone, InputStream image) {
 		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.city = city;
+		this.jobType = jobType;
+		this.phone = phone;
+		this.image = image;
 	}
 
 	public User(int id, String name, String email, String password, String city, String jobType, long phone,

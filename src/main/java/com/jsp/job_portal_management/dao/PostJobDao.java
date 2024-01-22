@@ -5,9 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jsp.job_portal_management.connection.UserConnection;
 import com.jsp.job_portal_management.dto.PostJob;
+
 /**
  * 
  * @author Mo Masood Ansari
@@ -75,5 +78,26 @@ public class PostJobDao {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	public List<PostJob> getAllVerifiedJobDao() {
+		String selectQuery = "SELECT * From postjob where verified='yes'";
+		try {
+			Statement ps = con.createStatement();
+			ResultSet set = ps.executeQuery(selectQuery);
+			List<PostJob> jobs = new ArrayList<PostJob>();
+			while (set.next()) {
+				PostJob postJob = new PostJob(set.getInt("id"), set.getString("name"), set.getString("email"),
+						set.getLong("phone"), set.getString("title"), set.getString("location"),
+						set.getString("experience"), set.getString("description"), set.getString("skill"),
+						set.getString("role"), set.getString("salary"), set.getString("verified"));
+				jobs.add(postJob);
+			}
+			return jobs;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+
 	}
 }

@@ -1,5 +1,10 @@
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.jsp.job_portal_management.dto.PostJob"%>
+<%@page import="java.util.List"%>
+<%@page import="com.jsp.job_portal_management.dao.PostJobDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +13,8 @@
 <title>User Home</title>
 </head>
 <body>
-	 <jsp:include page="user-navbar.jsp"></jsp:include> 
-	
+	<jsp:include page="user-navbar.jsp"></jsp:include>
+
 	<!-- <div class="card" style="width: 18rem;">
 		<div class="card-body">
 			<h5 class="card-title">Card title</h5>
@@ -20,53 +25,53 @@
 				class="card-link">Another link</a>
 		</div>
 	</div> -->
-	
-	<div class="container " style="margin-top: 10%">
-		
-		<div class="card" >
-        <div class="inner-card" style="border: 1px solid red">
-            <div>
-                <div><h3>Required Software Devlper</h3></div>
-                <div><p>Accurate info tech</p></div>
-                <div class="list">
-                    <ul>
-                        <li><i class="fa-solid fa-suitcase"></i> 0-1 yer</li>
-                        <li>|</li>
-                        <li><i class="fa-solid fa-indian-rupee-sign"></i> 3 to 5 lac</li>
-                        <li>|</i></li>
-                        <li><i class="fa-sharp fa-solid fa-location-dot"></i>  new Delhi</li>
-                    </ul>
-                </div>
-                <div class="disc">UI / UX Development: Design and implement engaging user interfaces for mobile </div>
-                <div class="list">
-                    <ul>
-                        <li>java</li>
-                        <li>|</li>
-                        <li>c++</li>
-                        <li>|</li>
-                        <li>java Script</li>
-                        <li>|</li>
-                        <li>react</li>
-                        <li>|</li>
-                        <li>.note</li>
-                        <li>|</li>
-                        <li>html</li>
-                        <li>|</li>
-                        <li>css</li>
-                        <li>|</li>
-                        <li>python</li>
-                    </ul>
-                </div>
-            </div>
-            <div></div>
-            <div></div>
-        </div>
 
-        
-    </div>
-	
+	<%
+	PostJobDao dao = new PostJobDao();
+	List<PostJob> jobs = dao.getAllVerifiedJobDao();
+	%>
+
+	<div class="container " style="margin-top: 10%">
+		<%
+		for (PostJob job : jobs) {
+		%>
+		<%
+		String skills = job.getSkills();
+		List<String> strings = new ArrayList<String>(Arrays.asList(skills.split(",")));
+		%>
+		<div class="card">
+			<div class="inner-card" style="border: 1px solid red">
+				<div>
+					<div>
+						<h3><%=job.getTitle()%></h3>
+					</div>
+					<div>
+						<p><%=job.getName()%></p>
+					</div>
+					<div class="list">
+						<ul>
+							<li><i class="fa-solid fa-suitcase"></i><%=job.getExperience() %></li>
+							<li>|</li>
+							<li><i class="fa-solid fa-indian-rupee-sign"></i><%=job.getSalary()%></li>
+							<li>|</i></li>
+							<li><i class="fa-sharp fa-solid fa-location-dot"></i><%=job.getLocation()%></li>
+						</ul>
+					</div>
+					<div class="disc"><%=job.getDescription()%></div>
+					<div class="list">
+						<ul>
+							<%for(String string: strings){ %>
+							<li><%=string%></li>
+							<li>|</li>
+							<%} %>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<%}%>
 	</div>
-	
+
 
 </body>
 </html>

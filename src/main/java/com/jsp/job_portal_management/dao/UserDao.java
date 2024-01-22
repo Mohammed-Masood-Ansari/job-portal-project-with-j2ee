@@ -77,13 +77,14 @@ public class UserDao {
 				String city = resultSet.getString("city");
 				String jobType = resultSet.getString("jobtype");
 				long phone = resultSet.getLong("phone");
+				int id= resultSet.getInt("id");
 				
 				/*
 				 * byte[] userimage = userImage.getBytes(1,(int) userImage.length()); byte[]
 				 * usercv = userCv.getBytes(2, (int)userCv.length());
 				 */
 				
-				return new User(name, email, city, jobType, phone, userImage);
+				return new User(id,name, email, city, jobType, phone, userImage);
 				
 			}
 		} catch (SQLException e) {

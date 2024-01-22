@@ -23,24 +23,23 @@ public class UserProfileController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		UserDao dao = new UserDao();
-		
+
 		UserProfileService profileService = new UserProfileService();
-		
+
 		String userEmail = req.getParameter("email");
 
 		User user = dao.getAllUserDetailsByEmailDao(userEmail);
-        
-		
-		
+
 		UserProfile profile = new UserProfile(req.getParameter("current"), req.getParameter("permanent"),
 				Integer.parseInt(req.getParameter("pincode")), req.getParameter("state"), req.getParameter("city"),
 				req.getParameter("education"), req.getParameter("country"), user);
 
 		profileService.saveUserProfileService(profile);
-		
+
 		req.setAttribute("userDetails", user);
-		
-		req.getRequestDispatcher("user-profile.jsp").forward(req, resp);;
+
+		req.getRequestDispatcher("user-profile.jsp").forward(req, resp);
+		;
 	}
 
 }
