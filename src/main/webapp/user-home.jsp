@@ -50,7 +50,7 @@
 					</div>
 					<div class="list">
 						<ul>
-							<li><i class="fa-solid fa-suitcase"></i><%=job.getExperience() %></li>
+							<li><i class="fa-solid fa-suitcase"></i><%=job.getExperience()%></li>
 							<li>|</li>
 							<li><i class="fa-solid fa-indian-rupee-sign"></i><%=job.getSalary()%></li>
 							<li>|</i></li>
@@ -60,13 +60,20 @@
 					<div class="disc"><%=job.getDescription()%></div>
 					<div class="list">
 						<ul>
-							<%for(String string: strings){ %>
+							<%
+							for (String string : strings) {
+							%>
 							<li><%=string%></li>
 							<li>|</li>
-							<%} %>
+							<%
+							}
+							%>
 						</ul>
 					</div>
 				</div>
+			</div>
+			<div>
+				<a href="applyJob?id=<%=job.getId()%>"><button style="height: 30px;width: 135px;margin-bottom: 10px;background-color: blue; color: white; border-radius: 10px;">APPLY</button></a>
 			</div>
 		</div>
 		<%}%>
