@@ -22,4 +22,23 @@ public class PostJob {
 	private String role;
 	private String salary;
 	private String verify;
+	
+	private Recruiter recruiter;
+
+	public PostJob(int id, String name, String email, long phone, String title, String location, String experience,
+			String description, String skills, String role, String salary, String verify) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.title = title;
+		this.location = location;
+		this.experience = experience;
+		this.description = description;
+		this.skills = skills;
+		this.role = role;
+		this.salary = salary;
+		this.verify = verify;
+	}
 }

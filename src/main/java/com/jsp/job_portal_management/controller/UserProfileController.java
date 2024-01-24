@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.jsp.job_portal_management.dao.UserDao;
+import com.jsp.job_portal_management.dao.UserProfileDao;
 import com.jsp.job_portal_management.dto.User;
 import com.jsp.job_portal_management.dto.UserProfile;
 import com.jsp.job_portal_management.service.UserProfileService;
@@ -26,6 +27,8 @@ public class UserProfileController extends HttpServlet {
 
 		UserProfileService profileService = new UserProfileService();
 
+		UserProfileDao profileDao = new UserProfileDao();
+		
 		String userEmail = req.getParameter("email");
 
 		User user = dao.getAllUserDetailsByEmailDao(userEmail);
@@ -34,12 +37,17 @@ public class UserProfileController extends HttpServlet {
 				Integer.parseInt(req.getParameter("pincode")), req.getParameter("state"), req.getParameter("city"),
 				req.getParameter("education"), req.getParameter("country"), user);
 
-		profileService.saveUserProfileService(profile);
-
+		int userid=profileDao.getUserIdByUserIdFromUserProfileDao(user.getId());
+		
+		if(userid!=0) {
+			System.out.println("already user profile is present");
+		}else {
+			profileService.saveUserProfileService(profile);
+		}
+		
 		req.setAttribute("userDetails", user);
 
 		req.getRequestDispatcher("user-profile.jsp").forward(req, resp);
-		;
 	}
 
 }

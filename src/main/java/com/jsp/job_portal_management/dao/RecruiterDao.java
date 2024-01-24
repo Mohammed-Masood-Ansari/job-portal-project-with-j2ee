@@ -41,24 +41,40 @@ public class RecruiterDao {
 	
 	public Recruiter getRecruiterByEmailDao(String email) {
 		String selectQuery = "select * from recruiter where email=?";
-		
+
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
 			preparedStatement.setString(1, email);
-			
+
 			ResultSet resultSet = preparedStatement.executeQuery();
-			if(resultSet.next()) {
+			if (resultSet.next()) {
 				return new Recruiter(resultSet.getString("email"), resultSet.getString("password"));
 			}
-			
+
 		} catch (SQLException e) {
-		
+
 			e.printStackTrace();
 		}
-		
-		
-		
-		
+
+		return null;
+	}
+	
+	public Recruiter getRecruiterAllColumnDataByEmailDao(String email) {
+		String selectQuery = "select * from recruiter where email=?";
+
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
+			preparedStatement.setString(1, email);
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return new Recruiter(resultSet.getInt("id"),resultSet.getString("name"),resultSet.getString("email"),resultSet.getString("company"),resultSet.getLong("phone"));
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
 		return null;
 	}
 }

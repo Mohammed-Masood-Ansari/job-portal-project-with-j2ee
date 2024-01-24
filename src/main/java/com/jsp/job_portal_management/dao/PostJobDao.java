@@ -23,7 +23,7 @@ public class PostJobDao {
 
 	public PostJob savePostJobDao(PostJob job) {
 
-		String insertQuery = "insert into postjob(name,email,phone,title,location,experience,description,skill,role,salary,verified)  values(?,?,?,?,?,?,?,?,?,?,?)";
+		String insertQuery = "insert into postjob(name,email,phone,title,location,experience,description,skill,role,salary,verified,recruiterid)  values(?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(insertQuery);
@@ -38,6 +38,7 @@ public class PostJobDao {
 			ps.setString(9, job.getRole());
 			ps.setString(10, job.getSalary());
 			ps.setString(11, "no");
+			ps.setInt(12, job.getRecruiter().getId());
 			ps.execute();
 			return job;
 		} catch (SQLException e) {

@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.jsp.job_portal_management.dao.RecruiterDao;
 import com.jsp.job_portal_management.dto.PostJob;
+import com.jsp.job_portal_management.dto.Recruiter;
 import com.jsp.job_portal_management.service.PostJobService;
 
 @SuppressWarnings({ "unused", "serial" })
@@ -19,7 +21,15 @@ public class PostJobController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		RecruiterDao dao = new RecruiterDao();
+		
 		HttpSession httpSession = req.getSession();
+		
+		String recruiterEmail =(String)httpSession.getAttribute("recruiterSession");
+		
+		Recruiter recruiter = dao.getRecruiterAllColumnDataByEmailDao(recruiterEmail);
+		
+		
 		
 		String name = req.getParameter("name");
 		String email = req.getParameter("email");
@@ -44,7 +54,8 @@ public class PostJobController extends HttpServlet {
 				.description(description)
 				.skills(skill)
 				.role(role)
-				.salary(salary).build();
+				.salary(salary)
+				.recruiter(recruiter).build();
 		
 		PostJobService jobService = new PostJobService();
 		

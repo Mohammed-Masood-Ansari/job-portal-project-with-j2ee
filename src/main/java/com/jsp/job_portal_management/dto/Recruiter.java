@@ -23,7 +23,17 @@ public class Recruiter {
 		this.phone = phone;
 	}
 	
-	
+	/*
+	 * get AllColumn By Email for that we have created this constructor
+	 */
+	public Recruiter(int id, String name, String email, String company, long phone) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.company = company;
+		this.phone = phone;
+	}
 
 	public Recruiter(String name, String email, String password, String company, long phone) {
 		super();
