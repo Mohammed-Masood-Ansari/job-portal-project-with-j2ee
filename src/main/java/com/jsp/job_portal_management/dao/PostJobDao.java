@@ -99,6 +99,5 @@ public class PostJobDao {
 			e.printStackTrace();
 		}
 		return null;
-
 	}
 }

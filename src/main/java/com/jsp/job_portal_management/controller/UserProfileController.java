@@ -40,7 +40,8 @@ public class UserProfileController extends HttpServlet {
 		int userid=profileDao.getUserIdByUserIdFromUserProfileDao(user.getId());
 		
 		if(userid!=0) {
-			System.out.println("already user profile is present");
+			profile.setUser(user);
+			profileDao.updateUserProfileByUserIdDao(profile);
 		}else {
 			profileService.saveUserProfileService(profile);
 		}

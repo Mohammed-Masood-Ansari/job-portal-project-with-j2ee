@@ -40,6 +40,18 @@ public class UserProfile {
 		this.education = education;
 		this.country = country;
 		this.user = user;
+	}	
+
+	public UserProfile(String currentAddress, String permanentAddress, int pincode, String state, String city,
+			String education, String country) {
+		super();
+		this.currentAddress = currentAddress;
+		this.permanentAddress = permanentAddress;
+		this.pincode = pincode;
+		this.state = state;
+		this.city = city;
+		this.education = education;
+		this.country = country;
 	}
 
 	public int getId() {

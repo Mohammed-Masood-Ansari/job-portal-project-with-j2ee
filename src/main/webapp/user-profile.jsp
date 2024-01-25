@@ -1,3 +1,5 @@
+<%@page import="com.jsp.job_portal_management.dto.UserProfile"%>
+<%@page import="com.jsp.job_portal_management.dao.UserProfileDao"%>
 <%@page import="java.io.IOException"%>
 <%@page import="java.io.InputStream"%>
 <%@page import="java.io.OutputStream"%>
@@ -36,7 +38,10 @@
 	/* ServletOutputStream outputStream = response.getOutputStream();*/
 	User user = (User) request.getAttribute("userDetails");
 	%>
-
+	<%
+			UserProfileDao dao = new UserProfileDao();
+			UserProfile profile = dao.getUserProfileByUserIdDao(user.getId());
+	%>
 	<%!
 	// Function to convert InputStream to Base64 String
 	private String getBase64Image(InputStream imageStream) {
@@ -81,19 +86,19 @@
 						</div>
 						<div class="col-md-12">
 							<label class="labels">Current-Address:</label><input type="text"
-								class="form-control" placeholder="enter current address" value="" name="current">
+								class="form-control" placeholder="enter current address" value="<%=profile.getCurrentAddress()%>" name="current">
 						</div>
 						<div class="col-md-12">
 							<label class="labels">Permanent-Address:</label><input type="text"
-								class="form-control" placeholder="enter permanent address" value="" name="permanent">
+								class="form-control" placeholder="enter permanent address" value="<%=profile.getPermanentAddress()%>" name="permanent">
 						</div>
 						<div class="col-md-12">
 							<label class="labels">Pincode:</label><input type="text"
-								class="form-control" placeholder="enter pin-code" value="" name="pincode">
+								class="form-control" placeholder="enter pin-code" value="<%=profile.getPincode()%>" name="pincode">
 						</div>
 						<div class="col-md-12">
 							<label class="labels">City:</label><input type="text"
-								class="form-control" placeholder="enter your city" value="" name="city">
+								class="form-control" placeholder="enter your city" value="<%=profile.getCity()%>" name="city">
 						</div>
 						<div class="col-md-12">
 							<label class="labels">Email-ID:</label><input type="email"
@@ -101,17 +106,17 @@
 						</div>
 						<div class="col-md-12">
 							<label class="labels">Education:</label><input type="text"
-								class="form-control" placeholder="highest-Qualification-Branch" value="" name="education">
+								class="form-control" placeholder="highest-Qualification-Branch" value="<%=profile.getEducation()%>" name="education">
 						</div>
 					</div>
 					<div class="row mt-3">
 						<div class="col-md-6">
 							<label class="labels">Country:</label><input type="text"
-								class="form-control" placeholder="country" value="" name="country">
+								class="form-control" placeholder="country" value="<%=profile.getCountry()%>" name="country">
 						</div>
 						<div class="col-md-6">
 							<label class="labels">State/Region:</label><input type="text"
-								class="form-control" value="" placeholder="state" name="state">
+								class="form-control" value="<%=profile.getState()%>" placeholder="state" name="state">
 						</div>
 					</div>
 					<div class="mt-5 text-center">
