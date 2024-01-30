@@ -1,3 +1,8 @@
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.jsp.job_portal_management.dto.PostJob"%>
+<%@page import="java.util.List"%>
+<%@page import="com.jsp.job_portal_management.dao.PostJobDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -5,6 +10,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Job Portal By Mo Masood Ansari</title>
+<link rel="stylesheet" href="userhome.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -63,11 +69,13 @@
 						class="nav-link dropdown-toggle" href="#"
 						id="navbarDropdownMenuLink" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> register </a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="margin-right: 20px;">
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
+							style="margin-right: 20px;">
 							<li><a class="dropdown-item" href="user-registration.jsp">for-user</a></li>
-							<li><a class="dropdown-item" href="recruiter-registration.jsp">for-recruiter</a></li>
+							<li><a class="dropdown-item"
+								href="recruiter-registration.jsp">for-recruiter</a></li>
 						</ul></li>
-				  </ul>
+				</ul>
 			</ul>
 		</div>
 
@@ -87,6 +95,63 @@
 			</div>
 		</div>
 	</div>
+
+	<%
+	PostJobDao dao = new PostJobDao();
+	List<PostJob> jobs = dao.getAllVerifiedJobDao();
+	%>
+
+	<div class="container " style="margin-top: 10%">
+		<%
+		for (PostJob job : jobs) {
+		%>
+		<%
+		String skills = job.getSkills();
+		List<String> strings = new ArrayList<String>(Arrays.asList(skills.split(",")));
+		%>
+		<div class="card">
+			<div class="inner-card" style="border: 1px solid red">
+				<div>
+					<div>
+						<h3><%=job.getTitle()%></h3>
+					</div>
+					<div>
+						<p><%=job.getName()%></p>
+					</div>
+					<div class="list">
+						<ul>
+							<li><i class="fa-solid fa-suitcase"></i><%=job.getExperience()%></li>
+							<li>|</li>
+							<li><i class="fa-solid fa-indian-rupee-sign"></i><%=job.getSalary()%></li>
+							<li>|</i></li>
+							<li><i class="fa-sharp fa-solid fa-location-dot"></i><%=job.getLocation()%></li>
+						</ul>
+					</div>
+					<div class="disc"><%=job.getDescription()%></div>
+					<div class="list">
+						<ul>
+							<%
+							for (String string : strings) {
+							%>
+							<li><%=string%></li>
+							<li>|</li>
+							<%
+							}
+							%>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div>
+				<a href="applyJob?id=<%=job.getId()%>"><button
+						style="height: 30px; width: 135px; margin-bottom: 10px; background-color: blue; color: white; border-radius: 10px;">APPLY</button></a>
+			</div>
+		</div>
+		<%
+		}
+		%>
+	</div>
+
 
 
 
