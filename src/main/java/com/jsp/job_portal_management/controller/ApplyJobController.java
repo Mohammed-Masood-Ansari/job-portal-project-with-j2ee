@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.jsp.job_portal_management.dao.AppliedJobDao;
 import com.jsp.job_portal_management.dao.PostJobDao;
+import com.jsp.job_portal_management.dto.AppliedJob;
 import com.jsp.job_portal_management.dto.PostJob;
 import com.jsp.job_portal_management.dto.User;
 import com.jsp.job_portal_management.service.UserService;
@@ -23,8 +25,10 @@ public class ApplyJobController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		PostJobDao dao = new PostJobDao();
-
+		
 		UserService service = new UserService();
+		
+		AppliedJobDao appliedJobDao = new AppliedJobDao();
 
 		HttpSession httpSession = req.getSession();
 
@@ -37,11 +41,16 @@ public class ApplyJobController extends HttpServlet {
 		PostJob postJob = dao.getPostJobByIdDao(jobId);
 		
 		if(userEmail!=null) {
-			   
+			   	
+				req.setAttribute("appliJobMsg", "Applied-Successfully");
+				AppliedJob appliedJob = new AppliedJob(user, postJob);
+				appliedJobDao.saveAppliedJobDao(appliedJob);
+				
+			   req.getRequestDispatcher("applied-job.jsp").forward(req, resp);
 		}else {
-			
+			req.setAttribute("appliJobMsg", "Please-Login-And-Then-Apply");
+			req.getRequestDispatcher("user-login.jsp").forward(req, resp);
 		}
 		
-		req.getRequestDispatcher("user-home.jsp").forward(req, resp);
 	}
 }

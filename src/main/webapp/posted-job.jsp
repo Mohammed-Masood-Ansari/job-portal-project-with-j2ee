@@ -14,7 +14,7 @@
 <body>
 	<jsp:include page="recruiter-navbar.jsp"></jsp:include>
 
-	
+		
 
 
 </body>
